@@ -1,1 +1,22 @@
-<p>media-simples works!</p>
+<h1>Exercício Notas</h1>
+<div>
+<label for="Nota 1">Nota 1</label>
+<input type= "number" [(ngModel)] = "Nota1"  class="Form-Control" />
+</div>
+<div>
+<label for="Nota 2">Nota 2</label>
+<input type= "number" [(ngModel)] = "Nota2"  class="Form-Control" />
+</div>
+<div>
+<label for="Nota 3">Nota 3</label>
+<input type= "number"[(ngModel)] = "Nota3"  class="Form-Control" />
+</div>
+<div>
+<label for="Nota 4">Nota 4</label>
+<input type = "number" [(ngModel)] = "Nota4"  class="Form-Control" />
+</div>
+
+<button (click)="Calcular()" class="btn btn-primary">Calcular</button>  
+
+<p>Média: {{media}}</p>
+<p>Situação: {{situacao}}</p>
