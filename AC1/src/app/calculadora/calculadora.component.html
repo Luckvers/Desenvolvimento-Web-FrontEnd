@@ -1,0 +1,18 @@
+<div>
+    <label for="Número 1">Digite o Primeiro número: </label>
+    <input type= "number" [(ngModel)] = "num1"  class="Form-Control" />
+    </div>
+    <div>
+        <label for="Número 2">Digite o Segundo número: </label>
+        <input type= "number" [(ngModel)] = "num2"  class="Form-Control" />
+        </div>
+
+        <button (click)="soma()" class="btn btn-primary">+</button>
+        <button (click)="subtracao()" class="btn btn-primary">-</button>
+        <button (click)="multiplicacao()" class="btn btn-primary">x</button>
+        <button (click)="divicao()" class="btn btn-primary">÷</button>
+
+        <p>Resultado: {{resultado}}</p>
+
+
+

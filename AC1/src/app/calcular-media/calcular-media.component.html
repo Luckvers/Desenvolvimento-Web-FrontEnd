@@ -1,0 +1,21 @@
+<div>
+<label for="Nota 1">AC1</label>
+<input type= "number" [(ngModel)] = "AC1"  class="Form-Control" />
+</div>
+<div>
+<label for="Nota 2">AC2</label>
+<input type= "number" [(ngModel)] = "AC2"  class="Form-Control" />
+</div>
+<div>
+<label for="Nota 3">AG</label>
+<input type= "number"[(ngModel)] = "AG"  class="Form-Control" />
+</div>
+<div>
+<label for="Nota 4">AF</label>
+<input type = "number" [(ngModel)] = "AF"  class="Form-Control" />
+</div>
+
+<button (click)="Calcular()" class="btn btn-primary">Calcular</button>  
+
+<p>Média: {{media}}</p>
+<p>Situação: {{situacao}}</p>

@@ -1,0 +1,13 @@
+<div>
+    <label for="">Peso (Kg)</label>
+    <input type="number" [(ngModel)]="peso" name="peso" class="Form-Control" />
+  </div>
+  <div>
+
+    <label for="">Altura (m)</label>
+    <input type="number" [(ngModel)]="altura" name="altura" class="Form-Control" />
+  </div>
+
+  <button (click)="calcularIMC()" class="btn btn-primary">Calcular</button>
+
+  <p>IMC: {{classificacao}}</p>
