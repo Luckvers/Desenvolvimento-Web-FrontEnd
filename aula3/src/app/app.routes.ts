@@ -6,12 +6,16 @@ import { TelaPaiComponent } from './tela-pai/tela-pai.component';
 import { TelaFilho1Component } from './tela-filho1/tela-filho1.component';
 import { TelaFilho2Component } from './tela-filho2/tela-filho2.component';
 import { MediaSimplxesComponent } from './media-simples/media-simples.component';
+import { ExemploDiretivasComponent } from './exemplo-diretivas/exemplo-diretivas.component';
+import { ListaTarefasComponent } from './lista-tarefas/lista-tarefas.component';
 
 export const routes: Routes = [
     {path: '', redirectTo: 'home', pathMatch: 'full'},
     {path: 'home', component: HomeComponent},
     {path:'calculadora',component: CalculadoraComponent},
     {path:'media-simples', component: MediaSimplxesComponent},
+    {path: 'exemplo-diretiva', component: ExemploDiretivasComponent},
+    {path: 'lista-tarefas', component: ListaTarefasComponent},
     
     {path: 'tela-pai', component: TelaPaiComponent, 
         children:[  
