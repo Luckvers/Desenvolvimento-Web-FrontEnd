@@ -1,0 +1,18 @@
+<div class="produtos-container">
+    <h1>Lista de Produtos</h1>
+  
+    <div *ngFor="let produto of produtos" class="produtos-card">
+      <h3>{{ produto.nome }}</h3>
+      <p>{{ produto.descricao }}</p>
+      <p>Preço: R$ {{ produto.preco }}</p>
+      <p *ngIf="!produto.emEstoque">⚠ Fora de estoque</p>
+  
+      <button
+        [disabled]="!produto.emEstoque"
+        [ngClass]="{ 'botao-desabilitado': !produto.emEstoque }"
+        (click)="comprar(produto.id)">
+        Comprar
+      </button>
+    </div>
+  </div>
+  

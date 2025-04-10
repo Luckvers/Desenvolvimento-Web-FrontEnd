@@ -1,0 +1,8 @@
+<div class="col-12">
+    <button (click)="OcultarBanner()">
+        {{ showBanner ? 'Ocultar Banner' : 'Mostrar Banner' }}
+      </button> 
+    <table *ngIf="showBanner" class="table table-bordered table-striped">
+        <img [src]= "urlImagem" />
+    </table>
+</div>
