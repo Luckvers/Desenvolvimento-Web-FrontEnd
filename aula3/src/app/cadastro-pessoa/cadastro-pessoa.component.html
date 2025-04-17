@@ -1,0 +1,20 @@
+<form [formGroup]="form" (ngSubmit)="salvar()">
+    <label for="nome" class="form-label">Nome:</label>
+    <input type="text" class="form-control" formControlName="nome">
+
+    <div class="invalid" *ngIf="form.get('nome')?.invalid && (form.get('nome')?.dirty || form.get('nome')?.touched)">
+    <div *ngIf="form.get('nome')?.errors?.['required']">Nome é Obrigatório</div>
+    </div>
+
+    <label for="celular" class="form-label">Celular:</label>
+    <input type="text" class="form-control" formControlName="celular">
+
+    <div class="invalid" *ngIf="form.get('celular')?.invalid && (form.get('celular')?.dirty || form.get('celular')?.touched)">
+        <div *ngIf="form.get('celular')?.errors?.['required']">Celular é Obrigatório</div>
+        </div>
+
+    <label for="cidade" class="form-label">Cidade:</label>
+    <input type="text" class="form-control" formControlName="cidade">
+
+    <button type="submit" [disabled]="!form.valid">Salvar</button>
+</form>

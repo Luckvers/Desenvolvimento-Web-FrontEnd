@@ -9,6 +9,8 @@ import { MediaSimplxesComponent } from './media-simples/media-simples.component'
 import { ExemploDiretivasComponent } from './exemplo-diretivas/exemplo-diretivas.component';
 import { ListaTarefasComponent } from './lista-tarefas/lista-tarefas.component';
 import { ClienteDetalheComponent } from './cliente-detalhe/cliente-detalhe.component';
+import { CadastroUsuarioComponent } from './cadastro-usuario/cadastro-usuario.component';
+import { CadastroPessoaComponent } from './cadastro-pessoa/cadastro-pessoa.component';
 
 export const routes: Routes = [
     {path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -18,6 +20,8 @@ export const routes: Routes = [
     {path: 'exemplo-diretiva', component: ExemploDiretivasComponent},
     {path: 'lista-tarefas', component: ListaTarefasComponent},
     {path: 'cliente-detalhe', component: ClienteDetalheComponent},
+    {path: 'cadastro-usuario', component:CadastroUsuarioComponent},
+    {path: 'cadastro-pessoa', component: CadastroPessoaComponent},
     
     {path: 'tela-pai', component: TelaPaiComponent, 
         children:[  
