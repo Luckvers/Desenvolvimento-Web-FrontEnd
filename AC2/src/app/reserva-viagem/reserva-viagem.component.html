@@ -1,0 +1,66 @@
+<form [formGroup]="reservaForm" (ngSubmit)="onSubmit()">
+
+  <!-- Destino -->
+  <div class="form-group">
+    <label for="destino">Destino:</label>
+    <select id="destino" formControlName="destino">
+      <option value="">Selecione</option>
+      <option *ngFor="let destino of destinos" [value]="destino">{{ destino }}</option>
+    </select>
+    <div *ngIf="reservaForm.get('destino')?.touched && reservaForm.get('destino')?.invalid" class="invalid">
+      Destino é obrigatório.
+    </div>
+  </div>
+
+  <!-- Data de Ida -->
+  <div class="form-group">
+    <label for="dataIda">Data de Ida:</label>
+    <input id="dataIda" type="date" formControlName="dataIda" />
+    <div *ngIf="reservaForm.get('dataIda')?.touched && reservaForm.get('dataIda')?.invalid" class="invalid">
+      Data de ida é obrigatória.
+    </div>
+  </div>
+
+  <!-- Data de Volta -->
+  <div class="form-group">
+    <label for="dataVolta">Data de Volta:</label>
+    <input id="dataVolta" type="date" formControlName="dataVolta" />
+    <div *ngIf="reservaForm.hasError('dataInvalida')" class="invalid">
+      A data de volta deve ser após a data de ida.
+    </div>
+    <div *ngIf="reservaForm.get('dataVolta')?.touched && reservaForm.get('dataVolta')?.invalid" class="invalid">
+      Data de volta é obrigatória.
+    </div>
+  </div>
+
+  <!-- Número de Passageiros -->
+  <div class="form-group">
+    <label for="passageiros">Número de Passageiros:</label>
+    <input id="passageiros" type="number" formControlName="passageiros" />
+    <div *ngIf="reservaForm.get('passageiros')?.touched && reservaForm.get('passageiros')?.errors">
+      <div *ngIf="reservaForm.get('passageiros')?.errors?.['required']" class="invalid">
+        Número de passageiros é obrigatório.
+      </div>
+      <div *ngIf="reservaForm.get('passageiros')?.errors?.['min'] || reservaForm.get('passageiros')?.errors?.['max']" class="invalid">
+        O número de passageiros deve estar entre 1 e 5.
+      </div>
+    </div>
+  </div>
+
+  <!-- E-mail de Contato -->
+  <div class="form-group">
+    <label for="email">E-mail de Contato:</label>
+    <input id="email" type="email" formControlName="email" />
+    <div *ngIf="reservaForm.get('email')?.touched && reservaForm.get('email')?.invalid">
+      <div *ngIf="reservaForm.get('email')?.errors?.['required']" class="invalid">
+        E-mail é obrigatório.
+      </div>
+      <div *ngIf="reservaForm.get('email')?.errors?.['email']" class="invalid">
+        Insira um e-mail válido.
+      </div>
+    </div>
+  </div>
+
+  <!-- Botão -->
+  <button type="submit" [disabled]="reservaForm.invalid">Enviar</button>
+</form>
