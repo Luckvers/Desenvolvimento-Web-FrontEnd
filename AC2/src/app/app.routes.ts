@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
-import { ReservaViagemComponent } from './reserva-viagem/reserva-viagem.component';
+import { FormularioComponent } from './formulario/formulario.component';
 
 export const routes: Routes = [
-    {path: '', redirectTo: 'reserva-viagem', pathMatch: 'full'},
-    {path: 'reserva-viagem', component: ReservaViagemComponent},
+    {path: '', redirectTo: 'formulario', pathMatch: 'full'},
+    {path: 'formulario', component: FormularioComponent},
 ];

@@ -1,0 +1,65 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+    
+    <div class="campo">
+    <label for="evento">Evento:</label>
+    <select id="evento" formControlName="evento">
+      <option value="">Selecione</option>
+      <option>TechConf 2025</option>
+      <option>Summit de Inovação</option>
+      <option>Angular World</option>
+      <option>Conexão Dev</option>
+    </select>
+    <div class="invalid" *ngIf="form.get('evento')?.touched && form.get('evento')?.invalid">Campo obrigatório.</div>
+  </div>
+  
+  <div class="campo">
+    <label for="modalidade">Modalidade:</label>
+    <select id="modalidade" formControlName="modalidade">
+      <option value="">Selecione</option>
+      <option>Presencial</option>
+      <option>Online</option>
+    </select>
+    <div class="invalid" *ngIf="form.get('modalidade')?.touched && form.get('modalidade')?.invalid">Campo obrigatório.</div>
+  </div>
+
+  <div class="campo">
+    <label for="dataInicio">Data de Início:</label>
+    <input id="dataInicio" type="date" formControlName="dataInicio" />
+    <div class="invalid" *ngIf="form.get('dataInicio')?.touched && form.get('dataInicio')?.invalid">Data Obrigatória.</div>
+  </div>
+
+  <div class="campo">
+    <label for="dataFim">Data de Término:</label>
+    <input id="dataFim" type="date" formControlName="dataFim" />
+    <div class="invalid" *ngIf="!isDataValida()">Término deve ser após o início.</div>
+  </div>
+
+    <div formArrayName="participantes">
+      <div *ngFor="let part of participantes.controls; let i = index" [formGroupName]="i">
+        <h4>Participante {{ i + 1 }}</h4>
+        <input placeholder="Nome Completo" formControlName="nome" [ngClass]="{ 'erro': part.get('nome')?.invalid && part.get('nome')?.touched }" />
+        <div class="invalid" *ngIf="part.get('nome')?.invalid && part.get('nome')?.touched">Nome é obrigatório.</div>
+  
+        <input placeholder="E-mail" formControlName="email" />
+        <div class="invalid" *ngIf="part.get('email')?.invalid && part.get('email')?.touched">E-mail inválido.</div>
+  
+        <input placeholder="CPF (XXX.XXX.XXX-XX)" formControlName="cpf" />
+        <div class="invalid" *ngIf="part.get('cpf')?.invalid && part.get('cpf')?.touched">CPF inválido.</div>
+  
+        <select formControlName="ingresso">
+          <option value="">Tipo de Ingresso</option>
+          <option>Padrão</option>
+          <option>VIP</option>
+          <option>Estudante</option>
+        </select>
+        <div class="invalid" *ngIf="part.get('ingresso')?.invalid && part.get('ingresso')?.touched">Tipo de Ingresso Obrigatório.</div>
+  
+        <button type="button" (click)="removeParticipante(i)" *ngIf="participantes.length > 1">Remover</button>
+      </div>
+    </div>
+  
+    <button type="button" (click)="addParticipante()">Adicionar Participante</button>
+  
+    <button type="submit" [disabled]="form.invalid || !isDataValida()">Enviar</button>
+  </form>
+  

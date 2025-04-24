@@ -1,0 +1,8 @@
+.campo {
+    display: block;
+    margin-bottom: 16px;
+  }
+
+  .invalid {
+    color: red;
+  }
