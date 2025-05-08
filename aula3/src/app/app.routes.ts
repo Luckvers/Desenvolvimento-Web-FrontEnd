@@ -11,6 +11,7 @@ import { ListaTarefasComponent } from './lista-tarefas/lista-tarefas.component';
 import { ClienteDetalheComponent } from './cliente-detalhe/cliente-detalhe.component';
 import { CadastroUsuarioComponent } from './cadastro-usuario/cadastro-usuario.component';
 import { CadastroPessoaComponent } from './cadastro-pessoa/cadastro-pessoa.component';
+import { ProdutoComponent } from './produto/produto.component';
 
 export const routes: Routes = [
     {path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -22,6 +23,7 @@ export const routes: Routes = [
     {path: 'cliente-detalhe', component: ClienteDetalheComponent},
     {path: 'cadastro-usuario', component:CadastroUsuarioComponent},
     {path: 'cadastro-pessoa', component: CadastroPessoaComponent},
+    {path: 'Produtos', component: ProdutoComponent},
     
     {path: 'tela-pai', component: TelaPaiComponent, 
         children:[  
